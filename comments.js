@@ -1,13 +1,11 @@
-// create a web server
-// run this file using node comments.js
-// then go to your browser and type localhost:3000
-// then you will see "Hello World"
+// Create web server
 
-const http = require('http');
+var express = require('express');
+var router = express.Router();
 
-const server = http.createServer(function(req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World\n');
+// Get comments page
+router.get('/', function(req, res, next) {
+  res.render('comments', { title: 'Comments' });
 });
 
-server.listen(3000, '');
+module.exports = router;
